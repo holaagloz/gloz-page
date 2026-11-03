@@ -1,0 +1,60 @@
+{
+  "violations": [],
+  "incomplete": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "tags": [
+        "cat.color",
+        "wcag2aa",
+        "wcag143",
+        "TTv5",
+        "TT13.c",
+        "EN-301-549",
+        "EN-9.1.4.3",
+        "ACT",
+        "RGAAv4",
+        "RGAA-3.2.1"
+      ],
+      "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fgColor": "#024aa9",
+                "bgColor": "#024aa9",
+                "contrastRatio": 1,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "normal",
+                "messageKey": "equalRatio",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<a _ngcontent-ng-c1987111634=\"\" href=\"#contacto\" class=\"button primary\">Hablemos <span _ngcontent-ng-c1987111634=\"\" aria-hidden=\"true\">↗</span></a>",
+                  "target": [
+                    "#navigation > .primary.button[href$=\"#contacto\"]"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element has a 1:1 contrast ratio with the background"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<a _ngcontent-ng-c1987111634=\"\" href=\"#contacto\" class=\"button primary\">Hablemos <span _ngcontent-ng-c1987111634=\"\" aria-hidden=\"true\">↗</span></a>",
+          "target": [
+            "#navigation > .primary.button[href$=\"#contacto\"]"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element has a 1:1 contrast ratio with the background"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,982 @@
+{
+  "violations": [],
+  "incomplete": [
+    {
+      "id": "aria-prohibited-attr",
+      "impact": "serious",
+      "tags": [
+        "cat.aria",
+        "wcag2a",
+        "wcag412",
+        "EN-301-549",
+        "EN-9.4.1.2",
+        "RGAAv4",
+        "RGAA-7.1.1"
+      ],
+      "description": "Ensure ARIA attributes are not prohibited for an element's role",
+      "help": "Elements must only use permitted ARIA attributes",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-prohibited-attr?application=playwright",
+      "nodes": [
+        {
+          "any": [],
+          "all": [],
+          "none": [
+            {
+              "id": "aria-prohibited-attr",
+              "data": {
+                "role": null,
+                "nodeName": "span",
+                "messageKey": "noRoleSingular",
+                "prohibited": [
+                  "aria-label"
+                ]
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "aria-label attribute is not well supported on \"span\" elements with no valid role attribute."
+            }
+          ],
+          "impact": "serious",
+          "html": "<span _ngcontent-ng-c1987111634=\"\" aria-label=\"Gloz\" class=\"brand\">",
+          "target": [
+            ".brand"
+          ],
+          "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on \"span\" elements with no valid role attribute."
+        },
+        {
+          "any": [],
+          "all": [],
+          "none": [
+            {
+              "id": "aria-prohibited-attr",
+              "data": {
+                "role": null,
+                "nodeName": "div",
+                "messageKey": "noRoleSingular",
+                "prohibited": [
+                  "aria-label"
+                ]
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "aria-label attribute is not well supported on \"div\" elements with no valid role attribute."
+            }
+          ],
+          "impact": "serious",
+          "html": "<div _ngcontent-ng-c77373771=\"\" aria-label=\"Espacio reservado para capturas auténticas de Viejos Barbería; no es una captura del producto\" class=\"capture-placeholder\">",
+          "target": [
+            ".capture-placeholder"
+          ],
+          "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on \"div\" elements with no valid role attribute."
+        }
+      ]
+    },
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "tags": [
+        "cat.color",
+        "wcag2aa",
+        "wcag143",
+        "TTv5",
+        "TT13.c",
+        "EN-301-549",
+        "EN-9.1.4.3",
+        "ACT",
+        "RGAAv4",
+        "RGAA-3.2.1"
+      ],
+      "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "6.8pt (9px)",
+                "fontWeight": "bold",
+                "messageKey": "bgGradient",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<section _ngcontent-ng-c2471060967=\"\" aria-labelledby=\"hero-title\" class=\"hero\">",
+                  "target": [
+                    ".hero"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a background gradient"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<p _ngcontent-ng-c2471060967=\"\" class=\"eyebrow\">Estudio creativo y tecnológico</p>",
+          "target": [
+            ".eyebrow[_ngcontent-ng-c2471060967=\"\"]"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "34.6pt (46.08px)",
+                "fontWeight": "bold",
+                "messageKey": "bgGradient",
+                "expectedContrastRatio": "3:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<section _ngcontent-ng-c2471060967=\"\" aria-labelledby=\"hero-title\" class=\"hero\">",
+                  "target": [
+                    ".hero"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a background gradient"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<h1 _ngcontent-ng-c2471060967=\"\" id=\"hero-title\">Diseñamos marcas, experiencias y soluciones digitales <em _ngcontent-ng-c2471060967=\"\">con intención.</em></h1>",
+          "target": [
+            "#hero-title"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "34.6pt (46.08px)",
+                "fontWeight": "normal",
+                "messageKey": "bgGradient",
+                "expectedContrastRatio": "3:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<section _ngcontent-ng-c2471060967=\"\" aria-labelledby=\"hero-title\" class=\"hero\">",
+                  "target": [
+                    ".hero"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a background gradient"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<em _ngcontent-ng-c2471060967=\"\">con intención.</em>",
+          "target": [
+            "#hero-title > em"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "9.8pt (13px)",
+                "fontWeight": "normal",
+                "messageKey": "bgGradient",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<section _ngcontent-ng-c2471060967=\"\" aria-labelledby=\"hero-title\" class=\"hero\">",
+                  "target": [
+                    ".hero"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a background gradient"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<p _ngcontent-ng-c2471060967=\"\" class=\"intro\">Combinamos branding, marketing digital y desarrollo de software para crear proyectos que comunican mejor, se ven profesionales y están construidos para crecer.</p>",
+          "target": [
+            ".intro"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "normal",
+                "messageKey": "bgOverlap",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element's background color could not be determined because it is overlapped by another element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<a _ngcontent-ng-c2471060967=\"\" href=\"#proyectos\" class=\"button\">Ver proyectos</a>",
+          "target": [
+            ".button[href$=\"#proyectos\"]"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fontSize": "75.0pt (100px)",
+                "fontWeight": "normal",
+                "messageKey": "pseudoContent",
+                "expectedContrastRatio": "3:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<div _ngcontent-ng-c2471060967=\"\" role=\"img\" aria-label=\"Composición conceptual azul oscuro con superficies curvas. Gloz: marcador tipográfico temporal; pendiente el logotipo original.\" class=\"hero-art\">",
+                  "target": [
+                    ".hero-art"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a pseudo element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<span _ngcontent-ng-c9393161=\"\" class=\"name\">Gloz</span>",
+          "target": [
+            ".art-content > gloz-brand-placeholder[tone=\"light\"] > .name[_ngcontent-ng-c9393161=\"\"]"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fontSize": "5.3pt (7px)",
+                "fontWeight": "normal",
+                "messageKey": "pseudoContent",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<div _ngcontent-ng-c2471060967=\"\" role=\"img\" aria-label=\"Composición conceptual azul oscuro con superficies curvas. Gloz: marcador tipográfico temporal; pendiente el logotipo original.\" class=\"hero-art\">",
+                  "target": [
+                    ".hero-art"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a pseudo element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<span _ngcontent-ng-c9393161=\"\" class=\"status\">LOGO TEMPORAL</span>",
+          "target": [
+            ".art-content > gloz-brand-placeholder[tone=\"light\"] > .status[_ngcontent-ng-c9393161=\"\"]"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fontSize": "6.0pt (8px)",
+                "fontWeight": "normal",
+                "messageKey": "pseudoContent",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<div _ngcontent-ng-c2471060967=\"\" role=\"img\" aria-label=\"Composición conceptual azul oscuro con superficies curvas. Gloz: marcador tipográfico temporal; pendiente el logotipo original.\" class=\"hero-art\">",
+                  "target": [
+                    ".hero-art"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a pseudo element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<p _ngcontent-ng-c2471060967=\"\" class=\"studio\">Creative &amp; digital studio</p>",
+          "target": [
+            ".studio"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fontSize": "5.3pt (7px)",
+                "fontWeight": "normal",
+                "messageKey": "pseudoContent",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<div _ngcontent-ng-c2471060967=\"\" role=\"img\" aria-label=\"Composición conceptual azul oscuro con superficies curvas. Gloz: marcador tipográfico temporal; pendiente el logotipo original.\" class=\"hero-art\">",
+                  "target": [
+                    ".hero-art"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a pseudo element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<p _ngcontent-ng-c2471060967=\"\" class=\"art-disciplines\">Identity / Strategy / Technology</p>",
+          "target": [
+            ".art-disciplines"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fontSize": "18.8pt (25px)",
+                "fontWeight": "normal",
+                "messageKey": "pseudoContent",
+                "expectedContrastRatio": "3:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<div _ngcontent-ng-c2471060967=\"\" role=\"img\" aria-label=\"Composición conceptual azul oscuro con superficies curvas. Gloz: marcador tipográfico temporal; pendiente el logotipo original.\" class=\"hero-art\">",
+                  "target": [
+                    ".hero-art"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a pseudo element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<span _ngcontent-ng-c2471060967=\"\" aria-hidden=\"true\" class=\"edition\">01</span>",
+          "target": [
+            ".edition"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "normal",
+                "messageKey": "bgOverlap",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element's background color could not be determined because it is overlapped by another element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<li _ngcontent-ng-c2079008061=\"\"><svg _ngcontent-ng-c2079008061=\"\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path _ngcontent-ng-c2079008061=\"\" d=\"m7 5-6 7 6 7 M17 5l6 7-6 7 M14 2l-4 20\"></path></svg>Desarrollo de software</li>",
+          "target": [
+            "li[_ngcontent-ng-c2079008061=\"\"]:nth-child(3)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "15.8pt (21px)",
+                "fontWeight": "normal",
+                "messageKey": "bgGradient",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<article _ngcontent-ng-c2467400361=\"\" class=\"branding service\" aria-labelledby=\"branding-title\">",
+                  "target": [
+                    ".branding"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a background gradient"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<p _ngcontent-ng-c2467400361=\"\" aria-hidden=\"true\" class=\"number\">01 <span _ngcontent-ng-c2467400361=\"\"></span></p>",
+          "target": [
+            ".branding > .service-copy > .number[aria-hidden=\"true\"]"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "18.0pt (24px)",
+                "fontWeight": "bold",
+                "messageKey": "bgGradient",
+                "expectedContrastRatio": "3:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<article _ngcontent-ng-c2467400361=\"\" class=\"branding service\" aria-labelledby=\"branding-title\">",
+                  "target": [
+                    ".branding"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a background gradient"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<h3 _ngcontent-ng-c2467400361=\"\" id=\"branding-title\">Branding y diseño</h3>",
+          "target": [
+            "#branding-title"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "9.0pt (12px)",
+                "fontWeight": "normal",
+                "messageKey": "bgGradient",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<article _ngcontent-ng-c2467400361=\"\" class=\"branding service\" aria-labelledby=\"branding-title\">",
+                  "target": [
+                    ".branding"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a background gradient"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<p _ngcontent-ng-c2467400361=\"\">Construimos identidades visuales sólidas, coherentes y memorables para marcas que buscan comunicar su esencia con claridad y profesionalismo.</p>",
+          "target": [
+            ".branding > .service-copy > p:nth-child(3)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "8.3pt (11px)",
+                "fontWeight": "normal",
+                "messageKey": "bgGradient",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<article _ngcontent-ng-c2467400361=\"\" class=\"branding service\" aria-labelledby=\"branding-title\">",
+                  "target": [
+                    ".branding"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a background gradient"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<li _ngcontent-ng-c2467400361=\"\">Logotipos</li>",
+          "target": [
+            ".branding > .service-copy > ul > li:nth-child(1)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "8.3pt (11px)",
+                "fontWeight": "normal",
+                "messageKey": "bgGradient",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<article _ngcontent-ng-c2467400361=\"\" class=\"branding service\" aria-labelledby=\"branding-title\">",
+                  "target": [
+                    ".branding"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a background gradient"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<li _ngcontent-ng-c2467400361=\"\">Identidad visual</li>",
+          "target": [
+            ".branding > .service-copy > ul > li:nth-child(2)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "8.3pt (11px)",
+                "fontWeight": "normal",
+                "messageKey": "bgGradient",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<article _ngcontent-ng-c2467400361=\"\" class=\"branding service\" aria-labelledby=\"branding-title\">",
+                  "target": [
+                    ".branding"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a background gradient"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<li _ngcontent-ng-c2467400361=\"\">Manuales de marca</li>",
+          "target": [
+            ".branding > .service-copy > ul > li:nth-child(3)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "8.3pt (11px)",
+                "fontWeight": "normal",
+                "messageKey": "bgGradient",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<article _ngcontent-ng-c2467400361=\"\" class=\"branding service\" aria-labelledby=\"branding-title\">",
+                  "target": [
+                    ".branding"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a background gradient"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<li _ngcontent-ng-c2467400361=\"\">Diseño gráfico y piezas digitales</li>",
+          "target": [
+            ".branding > .service-copy > ul > li:nth-child(4)"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "5.3pt (7px)",
+                "fontWeight": "normal",
+                "messageKey": "bgOverlap",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element's background color could not be determined because it is overlapped by another element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<span _ngcontent-ng-c2467400361=\"\">IDENTIDAD<br _ngcontent-ng-c2467400361=\"\">EN CADA DETALLE.</span>",
+          "target": [
+            ".paper > span"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fontSize": "18.0pt (24px)",
+                "fontWeight": "normal",
+                "messageKey": "pseudoContent",
+                "expectedContrastRatio": "3:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<div _ngcontent-ng-c2467400361=\"\" class=\"book\">",
+                  "target": [
+                    ".book"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a pseudo element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<span _ngcontent-ng-c2467400361=\"\" class=\"book-name\">Identidad<br _ngcontent-ng-c2467400361=\"\">con intención.</span>",
+          "target": [
+            ".book-name"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fontSize": "5.3pt (7px)",
+                "fontWeight": "normal",
+                "messageKey": "pseudoContent",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<div _ngcontent-ng-c2467400361=\"\" class=\"book\">",
+                  "target": [
+                    ".book"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a pseudo element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<span _ngcontent-ng-c2467400361=\"\" class=\"book-meta\">ESTUDIO GLOZ<br _ngcontent-ng-c2467400361=\"\">Manual de marca / Concepto</span>",
+          "target": [
+            ".book-meta"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "fontSize": "15.0pt (20px)",
+                "fontWeight": "normal",
+                "messageKey": "pseudoContent",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<div _ngcontent-ng-c2467400361=\"\" class=\"book\">",
+                  "target": [
+                    ".book"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a pseudo element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<span _ngcontent-ng-c2467400361=\"\" class=\"book-index\">01—</span>",
+          "target": [
+            ".book-index"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "5.3pt (7px)",
+                "fontWeight": "normal",
+                "messageKey": "bgGradient",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [
+                {
+                  "html": "<p _ngcontent-ng-c2467400361=\"\" class=\"concept-label\">Exploración visual / Concepto ilustrativo</p>",
+                  "target": [
+                    ".branding > .concept-label"
+                  ]
+                },
+                {
+                  "html": "<article _ngcontent-ng-c2467400361=\"\" class=\"branding service\" aria-labelledby=\"branding-title\">",
+                  "target": [
+                    ".branding"
+                  ]
+                }
+              ],
+              "impact": "serious",
+              "message": "Element's background color could not be determined due to a background gradient"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<p _ngcontent-ng-c2467400361=\"\" class=\"concept-label\">Exploración visual / Concepto ilustrativo</p>",
+          "target": [
+            ".branding > .concept-label"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "16.5pt (22px)",
+                "fontWeight": "normal",
+                "messageKey": "bgOverlap",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element's background color could not be determined because it is overlapped by another element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<div _ngcontent-ng-c2467400361=\"\" class=\"phone-title\">Ideas que<br _ngcontent-ng-c2467400361=\"\"><em _ngcontent-ng-c2467400361=\"\">conectan.</em></div>",
+          "target": [
+            ".phone-title"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "6.8pt (9px)",
+                "fontWeight": "bold",
+                "messageKey": "bgOverlap",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element's background color could not be determined because it is overlapped by another element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<span _ngcontent-ng-c2467400361=\"\">Tu próximo proyecto.</span>",
+          "target": [
+            ".screen-main > span"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "3.0pt (4px)",
+                "fontWeight": "normal",
+                "messageKey": "bgOverlap",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element's background color could not be determined because it is overlapped by another element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<small _ngcontent-ng-c2467400361=\"\">INTERFAZ CONCEPTUAL</small>",
+          "target": [
+            "small"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+        }
+      ]
+    }
+  ],
+  "passes": [
+    {
+      "id": "aria-allowed-attr",
+      "count": 20
+    },
+    {
+      "id": "aria-conditional-attr",
+      "count": 20
+    },
+    {
+      "id": "aria-deprecated-role",
+      "count": 5
+    },
+    {
+      "id": "aria-hidden-body",
+      "count": 1
+    },
+    {
+      "id": "aria-hidden-focus",
+      "count": 21
+    },
+    {
+      "id": "aria-prohibited-attr",
+      "count": 18
+    },
+    {
+      "id": "aria-required-attr",
+      "count": 5
+    },
+    {
+      "id": "aria-roles",
+      "count": 5
+    },
+    {
+      "id": "aria-valid-attr-value",
+      "count": 20
+    },
+    {
+      "id": "aria-valid-attr",
+      "count": 20
+    },
+    {
+      "id": "button-name",
+      "count": 1
+    },
+    {
+      "id": "bypass",
+      "count": 1
+    },
+    {
+      "id": "color-contrast",
+      "count": 95
+    },
+    {
+      "id": "document-title",
+      "count": 1
+    },
+    {
+      "id": "duplicate-id-aria",
+      "count": 11
+    },
+    {
+      "id": "html-has-lang",
+      "count": 1
+    },
+    {
+      "id": "html-lang-valid",
+      "count": 1
+    },
+    {
+      "id": "link-name",
+      "count": 9
+    },
+    {
+      "id": "list",
+      "count": 6
+    },
+    {
+      "id": "listitem",
+      "count": 23
+    },
+    {
+      "id": "meta-viewport",
+      "count": 1
+    },
+    {
+      "id": "nested-interactive",
+      "count": 6
+    },
+    {
+      "id": "role-img-alt",
+      "count": 5
+    },
+    {
+      "id": "target-size",
+      "count": 10
+    }
+  ]
+}

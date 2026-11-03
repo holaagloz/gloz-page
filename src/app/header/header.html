@@ -1,0 +1,14 @@
+<header [class.scrolled]="scrolled()">
+  <div class="container header-inner">
+    <span class="brand" aria-label="Gloz"><gloz-brand-placeholder /></span>
+    <button #toggle class="menu-toggle" type="button" [attr.aria-expanded]="open()" aria-controls="navigation" [attr.aria-label]="open() ? 'Cerrar menú' : 'Abrir menú'" (click)="toggleMenu()">
+      <span>{{ open() ? 'Cerrar' : 'Menú' }}</span><span class="menu-icon" [class.is-open]="open()" aria-hidden="true"><i></i><i></i></span>
+    </button>
+    <nav id="navigation" aria-label="Navegación principal" [class.is-open]="open()">
+      @for (item of navigation; track item.id) {
+        <a [href]="'#' + item.id" (click)="goToSection(item.id)">{{ item.label }}</a>
+      }
+      <a class="button primary" href="#contacto" (click)="goToSection('contacto')">Hablemos <span aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>

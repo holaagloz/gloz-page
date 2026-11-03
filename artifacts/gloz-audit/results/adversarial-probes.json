@@ -1,0 +1,25 @@
+{
+  "hoverViolationIds": [],
+  "focus": {
+    "focused": true,
+    "focusVisible": true,
+    "outline": "rgb(2, 74, 169) solid 3px",
+    "color": "rgb(255, 255, 255)",
+    "background": "rgb(2, 74, 169)"
+  },
+  "shortMenu": {
+    "viewportHeight": 320,
+    "scrollHeight": 453,
+    "clientHeight": 256,
+    "scrollTop": 197,
+    "activeText": "Hablemos ↗"
+  },
+  "shortMenuFocusTrace": [
+    "Servicios",
+    "Proyectos",
+    "Proceso",
+    "Nosotros",
+    "Contacto",
+    "Hablemos ↗"
+  ]
+}

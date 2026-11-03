@@ -1,0 +1,36 @@
+{
+  "hash": "041009ca",
+  "configHash": "03113cfd",
+  "lockfileHash": "61e3a5a4",
+  "browserHash": "84b3c29f",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "e0154b8e",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "46b20fc0",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "32ad457d",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "common-DiuswsMy": {
+      "file": "common-DiuswsMy.js",
+      "isDynamicEntry": false
+    },
+    "core-C1iFs7OR": {
+      "file": "core-C1iFs7OR.js",
+      "isDynamicEntry": false
+    }
+  }
+}

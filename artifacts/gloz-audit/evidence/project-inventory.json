@@ -1,0 +1,105 @@
+{
+  "node": "v24.22.1",
+  "scripts": {
+    "start": "ng serve gloz --host 127.0.0.1",
+    "build": "ng build gloz",
+    "check": "tsc --noEmit -p tsconfig.app.json",
+    "test": "npm run test:unit && npm run test:harness && playwright test",
+    "test:unit": "node --test tests/content-policy.test.mjs",
+    "test:harness": "ng build carousel-qa",
+    "test:e2e": "playwright test"
+  },
+  "installed": {
+    "@angular/common": {
+      "version": "22.2.4",
+      "dev": false
+    },
+    "@angular/compiler": {
+      "version": "22.2.4",
+      "dev": false
+    },
+    "@angular/core": {
+      "version": "22.2.4",
+      "dev": false
+    },
+    "@angular/platform-browser": {
+      "version": "22.2.4",
+      "dev": false
+    },
+    "@angular/platform-server": {
+      "version": "22.2.4",
+      "dev": false
+    },
+    "@angular/router": {
+      "version": "22.2.4",
+      "dev": false
+    },
+    "@angular/ssr": {
+      "version": "22.2.5",
+      "dev": false
+    },
+    "rxjs": {
+      "version": "7.8.2",
+      "dev": false
+    },
+    "tslib": {
+      "version": "2.9.1",
+      "dev": false
+    },
+    "@fontsource-variable/montserrat": {
+      "version": "5.3.0",
+      "dev": false
+    },
+    "@fontsource/yeseva-one": {
+      "version": "5.3.0",
+      "dev": false
+    },
+    "@angular/build": {
+      "version": "22.2.5",
+      "dev": true
+    },
+    "@angular/cli": {
+      "version": "22.2.5",
+      "dev": true
+    },
+    "@angular/compiler-cli": {
+      "version": "22.2.4",
+      "dev": true
+    },
+    "@playwright/test": {
+      "version": "1.64.1",
+      "dev": true
+    },
+    "@axe-core/playwright": {
+      "version": "4.14.0",
+      "dev": true
+    },
+    "typescript": {
+      "version": "6.0.3",
+      "dev": true
+    }
+  },
+  "linterConfigured": false,
+  "components": [
+    "Header",
+    "Hero",
+    "CapabilitiesStrip",
+    "Services",
+    "Portfolio",
+    "ClientLogoCarousel",
+    "WorkGallery",
+    "Process",
+    "About",
+    "Contact",
+    "SiteFooter"
+  ],
+  "availableReferences": [
+    "docs/gloz/reference/brand-manual.pdf",
+    "docs/gloz/reference/approved-hero-services.png"
+  ],
+  "missingReferences": [
+    "docs/gloz/GLOZ_MASTER_SPEC.md",
+    "docs/gloz/reference/portfolio-direction-concept-only.png",
+    "docs/gloz/reference/full-page-direction-concept-only.png"
+  ]
+}

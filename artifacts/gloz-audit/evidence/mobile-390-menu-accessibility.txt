@@ -1,0 +1,142 @@
+- link "Saltar al contenido":
+  - /url: "#contenido"
+- banner:
+  - text: Gloz LOGO TEMPORAL
+  - button "Cerrar menú" [expanded]: Cerrar
+  - navigation "Navegación principal":
+    - link "Servicios":
+      - /url: "#servicios"
+    - link "Proyectos":
+      - /url: "#proyectos"
+    - link "Proceso":
+      - /url: "#proceso"
+    - link "Nosotros":
+      - /url: "#nosotros"
+    - link "Contacto":
+      - /url: "#contacto"
+    - link "Hablemos":
+      - /url: "#contacto"
+- main:
+  - region "Diseñamos marcas, experiencias y soluciones digitales con intención.":
+    - paragraph: Estudio creativo y tecnológico
+    - heading "Diseñamos marcas, experiencias y soluciones digitales con intención." [level=1]:
+      - text: Diseñamos marcas, experiencias y soluciones digitales
+      - emphasis: con intención.
+    - paragraph: Combinamos branding, marketing digital y desarrollo de software para crear proyectos que comunican mejor, se ven profesionales y están construidos para crecer.
+    - link "Hablemos de tu proyecto":
+      - /url: "#contacto"
+    - link "Ver proyectos":
+      - /url: "#proyectos"
+    - 'img "Composición conceptual azul oscuro con superficies curvas. Gloz: marcador tipográfico temporal; pendiente el logotipo original."':
+      - text: Gloz LOGO TEMPORAL
+      - paragraph: Creative & digital studio
+      - paragraph: Identity / Strategy / Technology
+  - list "Disciplinas del estudio":
+    - listitem: Branding
+    - listitem: Marketing digital
+    - listitem: Desarrollo de software
+  - region "Tres disciplinas. Una misma visión.":
+    - paragraph: 02 / Qué hacemos
+    - heading "Tres disciplinas. Una misma visión." [level=2]
+    - paragraph: Unimos creatividad, estrategia y tecnología para desarrollar soluciones que conectan con las personas y responden a las necesidades de cada negocio.
+    - article "Branding y diseño":
+      - heading "Branding y diseño" [level=3]
+      - paragraph: Construimos identidades visuales sólidas, coherentes y memorables para marcas que buscan comunicar su esencia con claridad y profesionalismo.
+      - list:
+        - listitem: ✓ Logotipos
+        - listitem: ✓ Identidad visual
+        - listitem: ✓ Manuales de marca
+        - listitem: ✓ Diseño gráfico y piezas digitales
+      - img "Concepto ilustrativo de un manual de identidad y una paleta de color de Gloz. No representa trabajo de un cliente.": IDENTIDAD EN CADA DETALLE. Identidad con intención. ESTUDIO GLOZ Manual de marca / Concepto 01— COLOR / GLOZ
+      - paragraph: Exploración visual / Concepto ilustrativo
+    - article "Marketing digital":
+      - heading "Marketing digital" [level=3]
+      - paragraph: Desarrollamos estrategias, campañas y contenido para fortalecer la presencia digital de los negocios y conectar con sus audiencias.
+      - list:
+        - listitem: ✓ Estrategia digital
+        - listitem: ✓ Campañas publicitarias
+        - listitem: ✓ Creación de contenido
+        - listitem: ✓ Gestión de redes sociales
+      - 'img "Concepto ilustrativo de contenido digital: piezas tipográficas azules y blancas en una pantalla de teléfono."':
+        - text: ESTUDIO GLOZ Ideas que
+        - emphasis: conectan.
+        - text: Diseño con intención. Crear. Conectar. Comunicar. CONTENIDO / CONCEPTO
+      - paragraph: Exploración visual / Concepto ilustrativo
+    - article "Desarrollo de software":
+      - heading "Desarrollo de software" [level=3]
+      - paragraph: Diseñamos y construimos sitios web, aplicaciones y sistemas personalizados que resuelven necesidades reales y mejoran la experiencia de cada negocio.
+      - list:
+        - listitem: ✓ Sitios web
+        - listitem: ✓ Aplicaciones web
+        - listitem: ✓ Sistemas a medida
+        - listitem: ✓ Automatizaciones e integraciones
+      - img "Concepto ilustrativo de una interfaz de proyectos en una computadora. Sin datos ni resultados de producción.": G / STUDIO Tu próximo proyecto. INTERFAZ CONCEPTUAL Todo empieza con una idea. ↗
+      - paragraph: Exploración visual / Concepto ilustrativo
+  - region "Ideas que toman forma.":
+    - paragraph: 03 / Proyectos
+    - heading "Ideas que toman forma." [level=2]
+    - paragraph: Cada proyecto nace de una necesidad diferente. Combinamos estrategia, creatividad y tecnología para convertir esas ideas en soluciones reales.
+    - article "Viejos Barbería":
+      - paragraph: Caso destacado
+      - paragraph: Desarrollo de software
+      - heading "Viejos Barbería" [level=3]
+      - paragraph: Aplicación web para reservar citas y gestionar la agenda, los clientes y las operaciones de la barbería.
+      - link "Conversemos sobre tu proyecto":
+        - /url: "#contacto"
+      - text: Viejos
+      - emphasis: Barbería
+      - text: Capturas auténticas pendientes Composición tipográfica de referencia
+  - region "De la idea a la realidad.":
+    - paragraph: 04 / Nuestro proceso
+    - heading "De la idea a la realidad." [level=2]
+    - paragraph: Cada proyecto sigue un proceso claro que nos permite entender el negocio, diseñar con intención y construir soluciones sólidas.
+    - list:
+      - listitem:
+        - heading "Descubrimos" [level=3]
+        - paragraph: Entendemos tu negocio, tus objetivos y lo que realmente necesitas.
+      - listitem:
+        - heading "Estrategiamos" [level=3]
+        - paragraph: Definimos la dirección, sus prioridades y la mejor forma de ejecutarlo.
+      - listitem:
+        - heading "Diseñamos" [level=3]
+        - paragraph: Convertimos la estrategia en una experiencia visual clara, atractiva y coherente.
+      - listitem:
+        - heading "Desarrollamos" [level=3]
+        - paragraph: Construimos la solución con atención al detalle y a su funcionamiento.
+      - listitem:
+        - heading "Lanzamos" [level=3]
+        - paragraph: Ponemos el proyecto en marcha y te acompañamos en sus siguientes pasos.
+    - paragraph: Una guía de trabajo que adaptamos al alcance y las necesidades de cada proyecto.
+  - region "El equipo detrás de Gloz.":
+    - paragraph: 05 / Nosotros
+    - heading "El equipo detrás de Gloz." [level=2]
+    - paragraph: Somos un estudio que une creatividad, estrategia y tecnología para construir marcas, experiencias y soluciones digitales con propósito.
+    - paragraph: Nuestra fortaleza está en integrar diseño, marketing digital y desarrollo de software dentro de una misma visión de trabajo, cuidando tanto la estética como la funcionalidad de cada proyecto.
+    - list:
+      - listitem: Visión integral
+      - listitem: Enfoque en el negocio
+      - listitem: Acompañamiento real
+    - 'img "Composición tipográfica del estudio: creatividad, estrategia y tecnología, una misma visión."':
+      - text: Estudio creativo y tecnológico Creatividad. Estrategia. Tecnología.
+      - emphasis: Una misma visión.
+      - text: GLOZ / CREATIVE & DIGITAL STUDIO
+  - region "Hagamos algo bueno juntos.":
+    - paragraph: 06 / Contacto
+    - heading "Hagamos algo bueno juntos." [level=2]
+    - paragraph: Cuéntanos tu idea, necesidad o proyecto. Estamos listos para ayudarte a convertirlo en algo real.
+    - paragraph: Canal de contacto pendiente de publicación.
+- contentinfo:
+  - text: Gloz LOGO TEMPORAL
+  - paragraph: Creative & Digital Studio
+  - navigation "Navegación de pie de página":
+    - link "Servicios":
+      - /url: "#servicios"
+    - link "Proyectos":
+      - /url: "#proyectos"
+    - link "Proceso":
+      - /url: "#proceso"
+    - link "Nosotros":
+      - /url: "#nosotros"
+    - link "Contacto":
+      - /url: "#contacto"
+  - text: © 2026 Gloz Creatividad / Estrategia / Tecnología

@@ -1,0 +1,372 @@
+[
+  {
+    "label": "desktop-1440",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "width": 1440,
+      "height": 4424
+    },
+    "h1": {
+      "font": "Montserrat, Arial, sans-serif",
+      "size": "65.52px",
+      "lineHeight": "70.7616px",
+      "color": "rgb(23, 37, 71)",
+      "width": 694.390625,
+      "height": 284
+    },
+    "headerCta": {
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(2, 74, 169)"
+      },
+      "hover": {
+        "color": "rgb(2, 74, 169)",
+        "background": "rgb(2, 74, 169)"
+      }
+    },
+    "sticky": {
+      "top": 0,
+      "position": "sticky",
+      "scrolled": true
+    },
+    "fonts": [
+      {
+        "family": "Montserrat",
+        "status": "loaded"
+      },
+      {
+        "family": "Yeseva One",
+        "status": "loaded"
+      }
+    ],
+    "sectionHeights": [
+      {
+        "tag": "GLOZ-HERO",
+        "height": 610
+      },
+      {
+        "tag": "GLOZ-CAPABILITIES-STRIP",
+        "height": 87
+      },
+      {
+        "tag": "GLOZ-SERVICES",
+        "height": 877.5
+      },
+      {
+        "tag": "GLOZ-PORTFOLIO",
+        "height": 823.4375
+      },
+      {
+        "tag": "GLOZ-PROCESS",
+        "height": 587.625
+      },
+      {
+        "tag": "GLOZ-ABOUT",
+        "height": 742.78125
+      },
+      {
+        "tag": "GLOZ-CONTACT",
+        "height": 357.53125
+      },
+      {
+        "tag": "FOOTER",
+        "height": 257.59375
+      }
+    ],
+    "axeViolations": 0,
+    "contactLinks": 0
+  },
+  {
+    "label": "desktop-1280",
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "document": {
+      "width": 1280,
+      "height": 4317
+    },
+    "h1": {
+      "font": "Montserrat, Arial, sans-serif",
+      "size": "58.24px",
+      "lineHeight": "62.8992px",
+      "color": "rgb(23, 37, 71)",
+      "width": 656.578125,
+      "height": 252.5625
+    },
+    "headerCta": {
+      "normal": {
+        "color": "rgb(255, 255, 255)",
+        "background": "rgb(2, 74, 169)"
+      },
+      "hover": {
+        "color": "rgb(2, 74, 169)",
+        "background": "rgb(2, 74, 169)"
+      }
+    },
+    "sticky": {
+      "top": 0,
+      "position": "sticky",
+      "scrolled": true
+    },
+    "fonts": [
+      {
+        "family": "Montserrat",
+        "status": "loaded"
+      },
+      {
+        "family": "Yeseva One",
+        "status": "loaded"
+      }
+    ],
+    "sectionHeights": [
+      {
+        "tag": "GLOZ-HERO",
+        "height": 610
+      },
+      {
+        "tag": "GLOZ-CAPABILITIES-STRIP",
+        "height": 87
+      },
+      {
+        "tag": "GLOZ-SERVICES",
+        "height": 869
+      },
+      {
+        "tag": "GLOZ-PORTFOLIO",
+        "height": 797.34375
+      },
+      {
+        "tag": "GLOZ-PROCESS",
+        "height": 561.53125
+      },
+      {
+        "tag": "GLOZ-ABOUT",
+        "height": 723.59375
+      },
+      {
+        "tag": "GLOZ-CONTACT",
+        "height": 329.6875
+      },
+      {
+        "tag": "FOOTER",
+        "height": 257.59375
+      }
+    ],
+    "axeViolations": 0,
+    "contactLinks": 0
+  },
+  {
+    "label": "tablet-768",
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "document": {
+      "width": 768,
+      "height": 4956
+    },
+    "h1": {
+      "font": "Montserrat, Arial, sans-serif",
+      "size": "46.08px",
+      "lineHeight": "49.7664px",
+      "color": "rgb(23, 37, 71)",
+      "width": 703.484375,
+      "height": 150.25
+    },
+    "sticky": {
+      "top": 0,
+      "position": "sticky",
+      "scrolled": true
+    },
+    "fonts": [
+      {
+        "family": "Montserrat",
+        "status": "loaded"
+      },
+      {
+        "family": "Yeseva One",
+        "status": "loaded"
+      }
+    ],
+    "sectionHeights": [
+      {
+        "tag": "GLOZ-HERO",
+        "height": 751.125
+      },
+      {
+        "tag": "GLOZ-CAPABILITIES-STRIP",
+        "height": 87
+      },
+      {
+        "tag": "GLOZ-SERVICES",
+        "height": 1404.1875
+      },
+      {
+        "tag": "GLOZ-PORTFOLIO",
+        "height": 684.09375
+      },
+      {
+        "tag": "GLOZ-PROCESS",
+        "height": 844.984375
+      },
+      {
+        "tag": "GLOZ-ABOUT",
+        "height": 637.40625
+      },
+      {
+        "tag": "GLOZ-CONTACT",
+        "height": 248.5625
+      },
+      {
+        "tag": "FOOTER",
+        "height": 233.59375
+      }
+    ],
+    "axeViolations": 0,
+    "contactLinks": 0
+  },
+  {
+    "label": "mobile-390",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "document": {
+      "width": 390,
+      "height": 6927
+    },
+    "h1": {
+      "font": "Montserrat, Arial, sans-serif",
+      "size": "38px",
+      "lineHeight": "41.04px",
+      "color": "rgb(23, 37, 71)",
+      "width": 346,
+      "height": 247.1875
+    },
+    "sticky": {
+      "top": 0,
+      "position": "sticky",
+      "scrolled": true
+    },
+    "fonts": [
+      {
+        "family": "Montserrat",
+        "status": "loaded"
+      },
+      {
+        "family": "Yeseva One",
+        "status": "loaded"
+      }
+    ],
+    "sectionHeights": [
+      {
+        "tag": "GLOZ-HERO",
+        "height": 896.71875
+      },
+      {
+        "tag": "GLOZ-CAPABILITIES-STRIP",
+        "height": 93
+      },
+      {
+        "tag": "GLOZ-SERVICES",
+        "height": 2116.6875
+      },
+      {
+        "tag": "GLOZ-PORTFOLIO",
+        "height": 1045.890625
+      },
+      {
+        "tag": "GLOZ-PROCESS",
+        "height": 952.125
+      },
+      {
+        "tag": "GLOZ-ABOUT",
+        "height": 1055.40625
+      },
+      {
+        "tag": "GLOZ-CONTACT",
+        "height": 392.59375
+      },
+      {
+        "tag": "FOOTER",
+        "height": 309.59375
+      }
+    ],
+    "axeViolations": 0,
+    "contactLinks": 0
+  },
+  {
+    "label": "mobile-375",
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "document": {
+      "width": 375,
+      "height": 7017
+    },
+    "h1": {
+      "font": "Montserrat, Arial, sans-serif",
+      "size": "38px",
+      "lineHeight": "41.04px",
+      "color": "rgb(23, 37, 71)",
+      "width": 331,
+      "height": 247.1875
+    },
+    "sticky": {
+      "top": 0,
+      "position": "sticky",
+      "scrolled": true
+    },
+    "fonts": [
+      {
+        "family": "Montserrat",
+        "status": "loaded"
+      },
+      {
+        "family": "Yeseva One",
+        "status": "loaded"
+      }
+    ],
+    "sectionHeights": [
+      {
+        "tag": "GLOZ-HERO",
+        "height": 896.71875
+      },
+      {
+        "tag": "GLOZ-CAPABILITIES-STRIP",
+        "height": 93
+      },
+      {
+        "tag": "GLOZ-SERVICES",
+        "height": 2138.78125
+      },
+      {
+        "tag": "GLOZ-PORTFOLIO",
+        "height": 1045.890625
+      },
+      {
+        "tag": "GLOZ-PROCESS",
+        "height": 973.71875
+      },
+      {
+        "tag": "GLOZ-ABOUT",
+        "height": 1055.40625
+      },
+      {
+        "tag": "GLOZ-CONTACT",
+        "height": 392.59375
+      },
+      {
+        "tag": "FOOTER",
+        "height": 355.59375
+      }
+    ],
+    "axeViolations": 0,
+    "contactLinks": 0
+  }
+]

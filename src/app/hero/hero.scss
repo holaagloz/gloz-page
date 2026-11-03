@@ -1,0 +1,48 @@
+:host { display: block; }
+.hero { position: relative; background: linear-gradient(115deg, #fff 0%, var(--gray) 70%); overflow: hidden; }
+.hero-copy { padding: 40px 0 30px; }
+.eyebrow { font-size: 9px; letter-spacing: .16em; }
+.eyebrow::before { width: 2px; height: 18px; margin-right: 12px; }
+h1 { margin-top: 22px; font-size: clamp(38px, 6vw, 58px); line-height: 1.08; font-weight: 750; letter-spacing: -.055em; }
+h1 em { color: var(--blue); font-family: var(--accent); font-weight: 400; letter-spacing: -.045em; font-style: normal; white-space: nowrap; }
+.intro { max-width: 560px; font-size: 13px; line-height: 1.65; margin-top: 24px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 10px; }
+.actions .primary { flex-grow: 1; }
+.hero-art { position: relative; min-height: 280px; overflow: hidden; color: #fff; background: var(--navy); clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%); }
+.hero-art::after { content: ''; position: absolute; inset: 0; opacity: .15; pointer-events: none; background: repeating-linear-gradient(93deg, transparent 0 2px, #fff2 3px, transparent 4px), repeating-linear-gradient(0deg, transparent 0 3px, #0008 4px); }
+.surface { position: absolute; border: 1px solid #5584b64d; background: linear-gradient(135deg, #024aa944, #172547 65%); box-shadow: -16px -20px 50px #0a162b66; }
+.surface-one { width: 80%; aspect-ratio: 1; border-radius: 50%; top: -85%; right: -20%; }
+.surface-two { width: 110%; height: 130%; border-radius: 50% 50% 0 0; transform: rotate(-38deg); right: -70%; bottom: -70%; background: linear-gradient(130deg, #024aa9a6, var(--navy) 60%); }
+.surface-three { height: 120%; width: 36%; top: -10%; right: 5%; transform: skew(-37deg); background: linear-gradient(100deg, #0c1830, #17254700); border: 0; }
+.art-content { position: relative; z-index: 1; padding: 55px 24px 50px 50px; text-align: center; }
+gloz-brand-placeholder { font-size: 76px; }
+.studio { font-size: 8px; text-transform: uppercase; letter-spacing: .35em; margin-top: 18px; }
+.art-rule { display: block; width: 44px; height: 3px; background: #5795ec; margin: 28px 0 16px; }
+.art-disciplines { text-align: left; font-size: 7px; letter-spacing: .22em; text-transform: uppercase; }
+.edition { position: absolute; right: 20px; bottom: 15px; font-size: 25px; font-weight: 200; font-style: italic; }
+@media (min-width: 600px) and (max-width: 1099px) {
+  .hero-copy { max-width: 730px; padding-block: 50px 40px; }
+  .actions .primary { flex-grow: 0; }
+  .hero-art { min-height: 320px; }
+  .art-content { max-width: 620px; margin: auto; }
+  gloz-brand-placeholder { font-size: 100px; }
+  .surface-one { top: -190%; }
+}
+@media (min-width: 1100px) {
+  .hero { min-height: 610px; display: flex; align-items: center; }
+  .hero-copy { position: relative; z-index: 2; width: 56%; padding-block: 54px; }
+  .eyebrow { font-size: 10px; }
+  h1 { font-size: clamp(54px, 4.55vw, 68px); margin-top: 22px; }
+  .intro { width: 92%; font-size: 14px; line-height: 1.6; }
+  .actions { gap: 16px; }
+  .actions .primary { flex-grow: 0; }
+  .hero-art { position: absolute; inset: 0 0 0 auto; width: 48%; clip-path: polygon(19% 0, 100% 0, 100% 100%, 0 100%); }
+  .hero-art::before { content: ''; position: absolute; height: 34%; width: 20px; bottom: 0; left: 4%; transform: skew(-12deg); background: var(--blue); z-index: 3; }
+  .art-content { padding: 0 8% 0 23%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  gloz-brand-placeholder { font-size: clamp(90px, 10vw, 148px); }
+  .studio { font-size: 9px; letter-spacing: .32em; white-space: nowrap; }
+  .art-rule { align-self: flex-start; margin-top: 50px; margin-bottom: 24px; }
+  .art-disciplines { align-self: flex-start; font-size: 8px; letter-spacing: .2em; }
+  .edition { bottom: 34px; right: 9%; font-size: 38px; }
+  .surface-one { width: 100%; top: -73%; right: -45%; }
+}

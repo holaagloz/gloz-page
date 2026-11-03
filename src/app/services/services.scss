@@ -1,0 +1,106 @@
+:host { display: block; }
+section { padding: 42px 0 54px; background: var(--gray); }
+.section-heading { margin-bottom: 28px; }
+h2 { margin-top: 14px; font-size: clamp(30px, 3.2vw, 45px); line-height: 1.05; letter-spacing: -.055em; font-weight: 750; }
+.section-intro { margin-top: 24px; font-size: 13px; line-height: 1.7; max-width: 570px; }
+.services-grid { display: grid; gap: 20px; }
+.service { position: relative; overflow: hidden; border-radius: 6px; padding: 28px 24px 34px; background: #fff; isolation: isolate; }
+.number { color: var(--blue); display: flex; align-items: center; gap: 18px; font-size: 21px; font-weight: 650; line-height: 1; margin-bottom: 12px; }
+.number span { width: 40px; height: 1px; background: currentColor; }
+h3 { font-size: 24px; font-weight: 700; line-height: 1.15; letter-spacing: -.045em; margin-bottom: 14px; }
+.service-copy > p:not(.number) { font-size: 12px; line-height: 1.6; }
+ul { list-style: none; margin: 20px 0 0; padding: 0; font-size: 11px; line-height: 1.55; display: grid; gap: 9px; }
+li { position: relative; padding-left: 22px; }
+li::before { content: '✓'; position: absolute; left: 0; color: var(--blue); font-weight: 750; }
+.concept-label { position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px 24px; font-size: 7px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #526079; background: #ffffffed; z-index: 3; }
+.branding { background: linear-gradient(115deg, #fff 25%, #e1e4e2 85%); }
+.brand-art { position: relative; height: 270px; margin-top: 24px; perspective: 900px; }
+.book { position: absolute; right: 2%; top: 5%; width: 65%; height: 78%; transform: rotate(-18deg) rotateY(-12deg); background: var(--navy); color: white; border-left: 5px solid #283957; box-shadow: 6px 16px 18px #17254740, 3px 3px #c6c9ca; padding: 24px 18px; overflow: hidden; }
+.book::before { content: ''; position: absolute; inset: 0; opacity: .12; background: repeating-linear-gradient(0deg, transparent 0 2px, #fff5 3px); }
+.book-surface { position: absolute; width: 45%; height: 120%; background: var(--blue); transform: skew(-23deg); right: -15%; top: -15%; }
+.book-name { position: relative; font-family: var(--accent); font-size: 24px; line-height: 1.1; }
+.book-meta { position: absolute; left: 18px; bottom: 24px; font-size: 7px; letter-spacing: .08em; line-height: 1.7; max-width: 70%; }
+.book-index { position: absolute; right: 12px; bottom: 60px; font-size: 20px; font-weight: 250; }
+.paper { width: 65%; height: 80%; background: #fbfbf7; position: absolute; top: 18%; right: -1%; transform: rotate(8deg); box-shadow: 0 5px 12px #17254720; padding: 28px; }
+.paper span { font-size: 7px; font-weight: 650; }
+.paper i { display: block; width: 100%; height: 1px; margin-top: 20px; background: #17254720; }
+.palette { width: 55%; background: #fff; padding: 9px; height: 69px; display: flex; gap: 4px; position: absolute; bottom: 4%; left: 1%; transform: rotate(18deg); box-shadow: 0 3px 10px #17254718; }
+.palette i { flex: 1; height: 35px; background: var(--blue); }
+.palette i:nth-child(2) { background: var(--navy); }.palette i:nth-child(3) { background: #a9bdd8; }.palette i:nth-child(4) { background: var(--gray); }
+.palette span { position: absolute; bottom: 6px; font-size: 5px; letter-spacing: .1em; }
+.pen { position: absolute; width: 7px; height: 130px; border-radius: 10px; background: linear-gradient(90deg, #172547, #556074, #172547); transform: rotate(-35deg); top: 36%; left: 17%; box-shadow: 4px 6px 6px #17254730; }
+.marketing-art { position: relative; height: 245px; margin-top: 25px; }
+.blue-plane { position: absolute; inset: 15px -24px -34px 30%; background: var(--blue); clip-path: polygon(80% 0, 100% 0, 100% 100%, 0 100%); }
+.phone { position: absolute; width: 165px; height: 268px; top: 0; left: 50%; transform: translateX(-42%) rotate(13deg); border: 6px solid #202736; border-radius: 25px; background: white; box-shadow: 7px 12px 14px #17254730; padding: 14px 8px; }
+.phone-top { display: flex; justify-content: space-between; font-size: 6px; font-weight: 700; }
+.phone-top i { height: 5px; width: 26px; background: #202736; border-radius: 8px; }
+.phone-title { font-size: 22px; font-weight: 650; line-height: 1.1; letter-spacing: -.06em; margin: 18px 0 12px; }
+.phone-title em { font-family: var(--accent); font-weight: 400; color: var(--blue); }
+.post-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+.post-grid > span { aspect-ratio: 1; display: flex; align-items: center; padding: 7px; font-size: 7px; line-height: 1.4; }
+.post-blue { background: var(--blue); color: #fff; font-family: var(--accent); }
+.post-lines { background: repeating-linear-gradient(115deg, #e4e9ec 0 8px, #fff 8px 10px); }
+.post-light { background: var(--gray); font-weight: 600; }
+.post-circle { background: radial-gradient(circle at 80% 80%, var(--blue) 0 40%, transparent 41%), var(--navy); }
+.phone-bottom { display: block; font-size: 5px; margin-top: 9px; letter-spacing: .08em; }
+.software { background: var(--navy); color: white; }
+.software .number, .software li::before { color: #fff; }
+.software .concept-label { color: #d3dce9; background: #172547ed; }
+.software-art { position: relative; height: 210px; margin-top: 30px; }
+.laptop { position: absolute; top: 8%; left: 3%; width: 95%; transform: rotate(-7deg); }
+.screen { border: 7px solid #10182a; border-radius: 9px 9px 2px 2px; aspect-ratio: 1.6; background: #edf2f7; display: flex; box-shadow: 0 14px 28px #0005; overflow: hidden; }
+.screen-sidebar { width: 25%; background: #233657; color: #fff; padding: 13px 8px; }
+.screen-sidebar span { display: block; font-size: 5px; margin-bottom: 16px; white-space: nowrap; }
+.screen-sidebar i { display: block; width: 80%; height: 3px; background: #abb9cf; margin: 10px 0; opacity: .5; }
+.screen-main { flex: 1; padding: 16px 12px; color: var(--navy); }
+.screen-main > span { display: block; font-size: 9px; font-weight: 700; }
+.screen-main > small { display: block; font-size: 4px; margin: 4px 0 12px; letter-spacing: .1em; }
+.interface-banner { position: relative; padding: 10px; background: #d5e2f3; font-size: 14px; line-height: 1.2; font-weight: 650; letter-spacing: -.03em; }
+.interface-banner b { position: absolute; right: 10px; top: 12px; color: var(--blue); font-size: 24px; font-weight: 400; }
+.interface-grid { display: flex; gap: 5px; margin-top: 9px; }
+.interface-grid i { flex: 1; height: 18px; border-top: 2px solid #024aa977; background: white; }
+.laptop-base { height: 7px; margin-inline: -15px; background: linear-gradient(#e1e4e7, #64738a); border-radius: 0 0 50% 50%; }
+@media (min-width: 650px) and (max-width: 1099px) {
+  .service { padding: 32px 30px 40px; min-height: 360px; }
+  .service-copy { width: 53%; position: relative; z-index: 2; }
+  .brand-art, .marketing-art, .software-art { position: absolute; right: 0; top: 30px; width: 45%; height: 300px; margin: 0; }
+  .brand-art { top: 20px; height: 320px; }
+  .software-art { top: 80px; }
+  .concept-label { padding-left: 30px; }
+}
+@media (min-width: 900px) {
+  section { padding-block: 48px 60px; }
+  .section-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 55px; align-items: center; margin-bottom: 32px; }
+  .section-intro { border-left: 1px solid var(--line); padding: 6px 0 6px 34px; margin: 0; font-size: 13px; }
+}
+@media (min-width: 1100px) {
+  .services-grid { grid-template-columns: 7fr 5fr; gap: 22px; }
+  .service { padding: 28px 28px 34px; }
+  .branding { grid-row: span 2; min-height: 614px; }
+  .branding .service-copy { width: 58%; position: relative; z-index: 2; }
+  .branding h3 { font-size: 29px; }
+  .branding ul { margin-top: 26px; gap: 13px; }
+  .brand-art { position: absolute; right: -12%; bottom: 20px; width: 80%; height: 320px; margin: 0; }
+  .book { width: 64%; height: 86%; top: 0; right: 10%; }
+  .book-name { font-size: 30px; }
+  .book-meta { font-size: 9px; }
+  .paper { right: 3%; top: 14%; }
+  .palette { left: 10%; bottom: 2%; width: 48%; }
+  .pen { left: 20%; top: 30%; }
+  .marketing, .software { min-height: 296px; }
+  .marketing .service-copy, .software .service-copy { width: 68%; position: relative; z-index: 2; }
+  .marketing h3, .software h3 { font-size: 24px; }
+  .marketing .service-copy > p:not(.number), .software .service-copy > p:not(.number) { font-size: 11px; }
+  .marketing ul, .software ul { gap: 5px; font-size: 10px; margin-top: 16px; }
+  .marketing-art { position: absolute; right: -12px; top: 20px; width: 30%; height: 100%; margin: 0; }
+  .phone { width: 130px; top: 12px; left: auto; right: -8px; transform: rotate(14deg); }
+  .blue-plane { inset: 0; clip-path: polygon(80% 0, 100% 0, 100% 100%, 0 100%); }
+  .software-art { position: absolute; right: -20px; bottom: 28px; width: 30%; height: 160px; margin: 0; }
+  .laptop { top: 10%; left: 0; width: 100%; }
+  .screen { aspect-ratio: 1.3; border-width: 5px; }
+  .screen-sidebar { padding: 13px 4px; }
+  .screen-main { padding: 13px 8px; }
+  .screen-main > span { font-size: 7px; }
+  .interface-banner { font-size: 11px; }
+  .interface-banner b { font-size: 17px; right: 6px; }
+}

@@ -1,0 +1,33 @@
+<section id="proyectos" class="section-space" tabindex="-1" aria-labelledby="projects-title">
+  <div class="container">
+    <div class="editorial-heading">
+      <div><p class="eyebrow">03 / Proyectos</p><h2 id="projects-title">Ideas que<br>toman forma.</h2></div>
+      <p class="section-intro">Cada proyecto nace de una necesidad diferente. Combinamos estrategia, creatividad y tecnología para convertir esas ideas en soluciones reales.</p>
+    </div>
+    @if (featured; as project) {
+      <article class="featured-project" aria-labelledby="featured-title">
+        <div class="featured-copy">
+          <p class="project-kicker">Caso destacado <span aria-hidden="true">/ 01</span></p>
+          <p class="project-role">{{ project.verifiedRole }}</p>
+          <h3 id="featured-title">{{ project.title }}</h3>
+          <p class="project-summary">{{ project.summary }}</p>
+          <a class="text-link" href="#contacto">Conversemos sobre tu proyecto <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="project-visual">
+          @if (asset(project.coverImage) && project.coverAlt && !imageFailed()) {
+            <img [src]="project.coverImage" [alt]="project.coverAlt" width="1000" height="800" loading="lazy" (error)="imageFailed.set(true)">
+          } @else {
+            <div class="capture-placeholder" aria-label="Espacio reservado para capturas auténticas de Viejos Barbería; no es una captura del producto">
+              <div class="crop crop-a"></div><div class="crop crop-b"></div>
+              <span class="placeholder-index" aria-hidden="true">VB / SOFTWARE</span>
+              <span class="placeholder-title">Viejos<br><em>Barbería</em></span>
+              <span class="placeholder-note">Capturas auténticas pendientes<br>Composición tipográfica de referencia</span>
+            </div>
+          }
+        </div>
+      </article>
+    }
+    <gloz-client-logo-carousel [clients]="clients" />
+    <gloz-work-gallery [projects]="projects" />
+  </div>
+</section>

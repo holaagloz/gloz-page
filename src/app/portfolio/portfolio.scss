@@ -1,0 +1,27 @@
+:host { display: block; }
+section { background: white; }
+.featured-project { background: var(--navy); color: white; display: grid; overflow: hidden; }
+.featured-copy { padding: 32px 26px 38px; }
+.project-kicker { font-size: 9px; text-transform: uppercase; letter-spacing: .18em; display: flex; justify-content: space-between; gap: 20px; color: #d1dceb; }
+.project-role { font-size: 10px; margin: 36px 0 14px; color: #bccde6; }
+h3 { font-size: clamp(35px, 4vw, 58px); line-height: 1.06; font-weight: 650; letter-spacing: -.055em; max-width: 420px; }
+.project-summary { margin-top: 24px; font-size: 13px; line-height: 1.8; max-width: 375px; }
+.text-link { display: inline-flex; align-items: center; gap: 18px; margin-top: 32px; min-height: 44px; padding-block: 8px; font-size: 11px; text-decoration-thickness: 1px; text-underline-offset: 6px; }
+.text-link:focus-visible { outline-color: white; }
+.project-visual { position: relative; min-width: 0; background: #101d39; padding: 24px; display: grid; align-items: center; }
+.project-visual > img { display: block; width: 100%; height: auto; aspect-ratio: 5/4; object-fit: contain; }
+.capture-placeholder { min-height: 300px; border: 1px solid #a5b7d24d; padding: 30px; position: relative; display: flex; flex-direction: column; justify-content: center; background: repeating-linear-gradient(90deg, transparent 0 39px, #fff03 40px), repeating-linear-gradient(0deg, transparent 0 39px, #fff03 40px); }
+.placeholder-index { font-size: 8px; letter-spacing: .2em; position: absolute; top: 22px; left: 24px; color: #b6c6df; }
+.placeholder-title { font-size: clamp(40px, 5.3vw, 74px); font-weight: 300; line-height: 1.05; letter-spacing: -.05em; margin: 25px 0 36px; }
+.placeholder-title em { font-family: var(--accent); font-style: normal; font-weight: 400; }
+.placeholder-note { font-size: 8px; line-height: 1.8; letter-spacing: .05em; color: #b6c6df; }
+.crop { position: absolute; width: 12px; height: 12px; border-color: #d0dced; }
+.crop-a { top: -1px; left: -1px; border-top: 1px solid; border-left: 1px solid; }
+.crop-b { bottom: -1px; right: -1px; border-bottom: 1px solid; border-right: 1px solid; }
+@media(min-width: 768px) {
+  .featured-project { grid-template-columns: 5fr 7fr; }
+  .featured-copy { padding: 40px 32px; }
+  .project-visual { padding: 32px; }
+  .capture-placeholder { min-height: 370px; padding: 38px; }
+}
+@media(min-width: 1100px) { .featured-copy { padding: 48px; } .project-visual { padding: 42px; } .capture-placeholder { min-height: 390px; } }
