@@ -1,14 +1,1 @@
-<header [class.scrolled]="scrolled()">
-  <div class="container header-inner">
-    <span class="brand" aria-label="Gloz"><gloz-brand-placeholder /></span>
-    <button #toggle class="menu-toggle" type="button" [attr.aria-expanded]="open()" aria-controls="navigation" [attr.aria-label]="open() ? 'Cerrar menú' : 'Abrir menú'" (click)="toggleMenu()">
-      <span>{{ open() ? 'Cerrar' : 'Menú' }}</span><span class="menu-icon" [class.is-open]="open()" aria-hidden="true"><i></i><i></i></span>
-    </button>
-    <nav id="navigation" aria-label="Navegación principal" [class.is-open]="open()">
-      @for (item of navigation; track item.id) {
-        <a [href]="'#' + item.id" (click)="goToSection(item.id)">{{ item.label }}</a>
-      }
-      <a class="button primary" href="#contacto" (click)="goToSection('contacto')">Hablemos <span aria-hidden="true">↗</span></a>
-    </nav>
-  </div>
-</header>
+﻿<header><a class="logo" routerLink="/" aria-label="Gloz, inicio"><img src="brand/gloz-original-light.png" width="120" height="52" alt="Gloz"></a><button #toggle class="menu-toggle" type="button" aria-controls="primary-nav" [attr.aria-expanded]="open()" [attr.aria-label]="open() ? 'Cerrar menú' : 'Abrir menú'" (click)="toggleMenu()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button><nav id="primary-nav" aria-label="Principal" [class.menu-open]="open()" (click)="closeMenu()"><a routerLink="/proyectos" routerLinkActive="active" ariaCurrentWhenActive="page">Proyectos</a><a routerLink="/estudio" routerLinkActive="active" ariaCurrentWhenActive="page">Estudio</a><a class="contact-link" routerLink="/contacto" routerLinkActive="active" ariaCurrentWhenActive="page">Hablemos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a></nav></header>

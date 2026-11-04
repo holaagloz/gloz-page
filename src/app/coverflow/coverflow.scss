@@ -1,0 +1,140 @@
+:host {
+  display: block;
+  --cf-width: clamp(360px, 39vw, 720px);
+  --cf-ratio: 3 / 2;
+  --cf-duration: 650ms;
+  --cf-ease: cubic-bezier(.22, .72, .16, 1);
+  --cf-border: color-mix(in srgb, var(--paper) 65%, transparent);
+  --cf-shadow: color-mix(in srgb, var(--navy) 45%, transparent);
+  --cf-control: color-mix(in srgb, var(--paper) 12%, transparent);
+}
+.coverflow { position: relative; }
+.cf-stage {
+  position: relative;
+  height: calc(var(--cf-width) * 2 / 3);
+  margin: 0 auto;
+  width: 100%;
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+}
+.cf-entrance {
+  position: absolute; inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.is-ready .cf-entrance { animation: cf-stage-in 720ms cubic-bezier(.16, 1, .3, 1) both; }
+@keyframes cf-stage-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.cf-space {
+  position: absolute;
+  inset: 0;
+  perspective: 1600px;
+  transform-style: preserve-3d;
+  // Let pointer hit testing reach cards behind this transparent 3D plane.
+  pointer-events: none;
+}
+.cf-card {
+  position: absolute;
+  left: calc(50% - var(--cf-width) / 2);
+  top: 0;
+  width: var(--cf-width);
+  aspect-ratio: var(--cf-ratio);
+  padding: 0;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  overflow: visible;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, -1200px) scale(.65);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform var(--cf-duration) var(--cf-ease), opacity var(--cf-duration) var(--cf-ease);
+  touch-action: pan-y pinch-zoom;
+}
+.cf-surface {
+  display: block; position: relative; width: 100%; height: 100%;
+  border: 1px solid var(--cf-border); border-radius: inherit;
+  background: var(--navy); overflow: hidden;
+  box-shadow: 0 24px 36px -14px var(--cf-shadow);
+  transition: transform 280ms cubic-bezier(.16, 1, .3, 1);
+}
+.cf-highlight {
+  position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  box-shadow: inset 0 0 0 1px var(--paper); opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+.cf-card img { width: 100%; height: 100%; object-fit: cover; }
+.cf-shade {
+  position: absolute; inset: 0;
+  background: var(--navy); opacity: 0;
+  transition: opacity var(--cf-duration) var(--cf-ease);
+}
+.cf-card[data-slot="0"] { transform: translate3d(0, 0, 0) rotateY(0) scale(1); opacity: 1; pointer-events: auto; cursor: default; }
+.cf-card[data-slot="-1"] { transform: translate3d(-36%, 0, -180px) rotateY(25deg) scale(.94); opacity: 1; pointer-events: auto; }
+.cf-card[data-slot="1"] { transform: translate3d(36%, 0, -180px) rotateY(-25deg) scale(.94); opacity: 1; pointer-events: auto; }
+.cf-card[data-slot="-2"] { transform: translate3d(-70%, 0, -370px) rotateY(35deg) scale(.90); opacity: 1; pointer-events: auto; }
+.cf-card[data-slot="2"] { transform: translate3d(70%, 0, -370px) rotateY(-35deg) scale(.90); opacity: 1; pointer-events: auto; }
+.cf-card[data-slot="-3"] { transform: translate3d(-115%, 0, -600px) rotateY(44deg) scale(.82); opacity: 1; pointer-events: auto; }
+.cf-card[data-slot="3"] { transform: translate3d(115%, 0, -600px) rotateY(-44deg) scale(.82); opacity: 1; pointer-events: auto; }
+.cf-card[data-slot="-4"] { transform: translate3d(-147%, 0, -820px) rotateY(49deg) scale(.76); }
+.cf-card[data-slot="4"] { transform: translate3d(147%, 0, -820px) rotateY(-49deg) scale(.76); }
+.cf-card[data-slot="-5"], .cf-card[data-slot="-6"], .cf-card[data-slot="5"], .cf-card[data-slot="6"] { transition: none; }
+.coverflow:not(.is-ready) .cf-card { transition: none; }
+.coverflow:not(.is-ready) .cf-arrow, .coverflow:not(.is-ready) .cf-information, .coverflow:not(.is-ready) .cf-dots { opacity: 0; visibility: hidden; }
+.is-ready .cf-arrow, .is-ready .cf-information, .is-ready .cf-dots { animation: cf-chrome-in 420ms 160ms ease-out both; }
+@keyframes cf-chrome-in { from { opacity: 0; } to { opacity: 1; } }
+.cf-card[data-slot="-1"] .cf-shade, .cf-card[data-slot="1"] .cf-shade { opacity: .18; }
+.cf-card[data-slot="-2"] .cf-shade, .cf-card[data-slot="2"] .cf-shade { opacity: .32; }
+.cf-card[data-slot="-3"] .cf-shade, .cf-card[data-slot="3"] .cf-shade { opacity: .48; }
+.cf-arrow {
+  position: absolute; top: calc(50% - 28px); z-index: 2;
+  display: grid; place-items: center; width: 56px; height: 56px;
+  border: 1px solid var(--cf-border); border-radius: 50%; padding: 0;
+  background: var(--cf-control); color: var(--paper);
+  transition: background 160ms ease-out, color 160ms ease-out;
+}
+.cf-arrow svg { width: 27px; height: 27px; }
+.cf-prev { left: clamp(16px, 1.6vw, 32px); }
+.cf-next { right: clamp(16px, 1.6vw, 32px); }
+.cf-information { padding: 22px 24px 0; text-align: center; min-height: 87px; }
+.cf-title { max-width: none; font-size: 22px; font-weight: 700; line-height: 1.3; letter-spacing: -.025em; animation: cf-caption-in 260ms ease-out; }
+.cf-category { max-width: none; font-size: 16px; margin-top: 5px; animation: cf-caption-in 260ms ease-out; }
+@keyframes cf-caption-in { from { opacity: .45; } to { opacity: 1; } }
+.cf-dots { display: flex; justify-content: center; gap: 0; margin: 2px 0 12px; }
+.cf-dots button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; background: none; border-radius: 8px; }
+.cf-dots span { width: 9px; height: 9px; border-radius: 50%; background: var(--paper); opacity: .4; transition: opacity 160ms ease-out, transform 160ms ease-out; }
+.cf-dots button[aria-current="true"] span { opacity: 1; transform: scale(1.1); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.cf-empty { padding: 32px; text-align: center; }
+@media (hover: hover) {
+  .cf-arrow:hover { background: var(--paper); color: var(--blue); }
+  .cf-dots button:hover span { opacity: 1; }
+  .cf-card:not([data-slot="0"]):hover .cf-shade { opacity: .06; }
+  .cf-card:hover .cf-surface { transform: translateY(-5px) scale(1.012); }
+  .cf-card:hover .cf-highlight { opacity: .7; }
+}
+@media (max-width: 800px) {
+  :host { --cf-width: clamp(214px, 60vw, 350px); --cf-ratio: 4 / 5; }
+  .cf-stage { height: calc(var(--cf-width) * 1.25); }
+  .cf-space { perspective: 950px; }
+  .cf-card { border-radius: 12px; }
+  .cf-card[data-slot="-1"] { transform: translate3d(-64%, 0, -210px) rotateY(30deg) scale(.94); }
+  .cf-card[data-slot="1"] { transform: translate3d(64%, 0, -210px) rotateY(-30deg) scale(.94); }
+  .cf-card[data-slot="-2"] { transform: translate3d(-114%, 0, -380px) rotateY(34deg) scale(.9); opacity: 0; pointer-events: none; }
+  .cf-card[data-slot="2"] { transform: translate3d(114%, 0, -380px) rotateY(-34deg) scale(.9); opacity: 0; pointer-events: none; }
+  .cf-card[data-slot="-3"], .cf-card[data-slot="3"] { opacity: 0; pointer-events: none; }
+  .cf-arrow { width: 46px; height: 46px; top: calc(50% - 23px); }
+  .cf-prev { left: 12px; } .cf-next { right: 12px; }
+  .cf-arrow svg { width: 23px; height: 23px; }
+  .cf-information { padding: 20px 24px 0; min-height: 79px; }
+  .cf-title { font-size: 17px; }
+  .cf-category { font-size: 13px; margin-top: 5px; }
+  .cf-dots { margin: 8px 0 20px; }
+  .cf-dots button { width: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cf-card, .cf-shade, .cf-surface, .cf-highlight, .cf-arrow, .cf-dots span { transition: none; }
+  .is-ready .cf-entrance { animation: none; opacity: 1; transform: none; }
+  .is-ready .cf-arrow, .is-ready .cf-information, .is-ready .cf-dots { animation: none; opacity: 1; }
+  .cf-card:hover .cf-surface { transform: none; }
+  .cf-title, .cf-category { animation: none; }
+}

@@ -1,0 +1,51 @@
+@if (active(); as piece) {
+  <div class="coverflow" [class.is-ready]="ready()" [attr.data-ready]="ready()" [attr.aria-busy]="!ready()" role="region" aria-roledescription="carrusel"
+    [attr.aria-label]="label()" tabindex="0" (keydown)="keydown($event)">
+    <div class="cf-stage" (pointerdown)="pointerDown($event)" (pointerup)="pointerUp($event)"
+      (pointercancel)="pointerCancel()" (pointerleave)="pointerCancel()">
+      <div class="cf-entrance"><div class="cf-space">
+        @for (copy of copies(); track copy.copyIndex) {
+          <button type="button" class="cf-card" [attr.data-slot]="slot(copy.copyIndex)" [attr.data-piece]="copy.pieceIndex"
+            [attr.aria-label]="'Ver ' + copy.piece.title" [attr.aria-pressed]="slot(copy.copyIndex) === 0"
+            [attr.aria-hidden]="slot(copy.copyIndex) < -3 || slot(copy.copyIndex) > 3 ? 'true' : null"
+            tabindex="-1" (click)="cardClick(copy.copyIndex)">
+            <span class="cf-surface">
+              <img [src]="copy.piece.image" [alt]="copy.piece.alt" width="720" height="720"
+                [style.object-position]="copy.piece.position || '50% 50%'" draggable="false"
+                [attr.fetchpriority]="copy.pieceIndex === 0 ? 'high' : 'auto'">
+              <span class="cf-shade" aria-hidden="true"></span>
+              <span class="cf-highlight" aria-hidden="true"></span>
+            </span>
+          </button>
+        }
+      </div></div>
+      @if (pieces().length > 1) {
+        <button type="button" class="cf-arrow cf-prev" aria-label="Pieza anterior" (click)="step(-1)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 5-7 7 7 7"/></svg>
+        </button>
+        <button type="button" class="cf-arrow cf-next" aria-label="Pieza siguiente" (click)="step(1)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m10 5 7 7-7 7"/></svg>
+        </button>
+      }
+    </div>
+    <div class="cf-information" aria-live="polite" aria-atomic="true">
+      @for (caption of [piece]; track caption.id) {
+        <p class="cf-title">{{ caption.title }}</p>
+        <p class="cf-category">{{ caption.category }}</p>
+      }
+      <span class="sr-only">Pieza {{ activeIndex() + 1 }} de {{ pieces().length }}</span>
+    </div>
+    @if (pieces().length > 1) {
+      <div class="cf-dots" role="group" aria-label="Elegir pieza">
+        @for (item of pieces(); track item.id; let index = $index) {
+          <button type="button" [attr.aria-label]="'Pieza ' + (index + 1) + ': ' + item.title"
+            [attr.aria-current]="index === activeIndex() ? 'true' : null" (click)="select(index)">
+            <span aria-hidden="true"></span>
+          </button>
+        }
+      </div>
+    }
+  </div>
+} @else {
+  <p class="cf-empty">Las piezas estarán disponibles pronto.</p>
+}

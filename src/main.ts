@@ -1,5 +1,4 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { provideClientHydration } from '@angular/platform-browser';
+import { bootstrapApplication, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { App } from './app/app';
-
-bootstrapApplication(App, { providers: [provideClientHydration()] }).catch(console.error);
+import { appRouter } from './app/app.routes';
+bootstrapApplication(App, { providers: [provideClientHydration(withEventReplay()), appRouter()] }).catch(console.error);

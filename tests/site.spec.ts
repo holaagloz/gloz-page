@@ -1,92 +1,102 @@
 import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
+import { mkdir, writeFile } from 'node:fs/promises';
 
-test('Datos honestos, SEO y recursos pendientes', async ({ page, request }) => {
-  const response = await page.goto('/');
-  const html = await response!.text();
-  expect(html).toContain('ngh=');
-  await expect(page.locator('html')).toHaveAttribute('lang', 'es-CR');
-  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', /Gloz/);
-  await expect(page.locator('link[rel="canonical"]')).toHaveCount(0);
-  await expect(page.locator('#proyectos h3')).toHaveText('Viejos Barbería');
-  await expect(page.locator('.project-role')).toHaveText('Desarrollo de software');
-  await expect(page.locator('.placeholder-note')).toContainText('Capturas auténticas pendientes');
-  await expect(page.getByRole('region', { name: 'Marcas con las que hemos trabajado', exact: true })).toHaveCount(0);
-  await expect(page.getByRole('region', { name: 'Trabajos seleccionados' })).toHaveCount(0);
-  await expect(page.locator('#contacto a')).toHaveCount(0);
-  await expect(page.locator('.channel-pending')).toBeVisible();
-  await expect(page.locator('form, iframe')).toHaveCount(0);
-  expect(html).not.toMatch(/El Jardín Café|Pulso Fitness|La Esquina Burger|Vértice Bienes Raíces|QA fixture|example\.test/);
-  const year = new Intl.DateTimeFormat('es-CR', { year: 'numeric', timeZone: 'America/Costa_Rica' }).format(new Date());
-  await expect(page.locator('.footer-bottom')).toContainText(`© ${year} Gloz`);
-  expect((await request.get('/robots.txt')).status()).toBe(200);
-});
+const routes = [
+  ['/', 'gloz-home-page', '.hero', 'Gloz — Hacemos que pase.'],
+  ['/proyectos', 'gloz-projects-page', '#proyectos', 'Proyectos — Gloz'],
+  ['/estudio', 'gloz-studio-page', '#estudio', 'El estudio — Gloz'],
+  ['/contacto', 'gloz-contact-page', '#contacto', 'Hablemos de tu proyecto — Gloz']
+] as const;
 
-test('Anclas reales, destinos visibles bajo header y CTA', async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.setViewportSize({ width: 1280, height: 900 });
+for (const [url, component, section, title] of routes) {
+  test(`Ruta oficial ${url}: HTML estático, recarga, responsive, recursos y accesibilidad`, async ({ page, request }) => {
+    const errors: string[] = [];
+    page.on('pageerror', error => errors.push(error.message));
+    page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
+    page.on('requestfailed', req => errors.push(req.url()));
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    for (const width of [360, 390, 768, 1024, 1440, 1920]) {
+      await page.setViewportSize({ width, height: 1080 });
+      const response = await page.goto(url);
+      expect(response?.status()).toBe(200);
+      const html = await response!.text();
+      expect(html).toContain(`<${component}`);
+      expect(html).toContain('ngh=');
+      expect(html).not.toMatch(/Exploración V4|gloz-validation|prototype-picker/);
+      await expect(page.locator(section)).toBeAttached();
+      await expect(page).toHaveTitle(title);
+      await expect(page.locator('h1')).toHaveCount(1);
+      await expect(page.locator('header')).toHaveCount(1);
+      await expect(page.locator('footer')).toHaveCount(1);
+      await page.evaluate(async () => {
+        await document.fonts.ready;
+        await Promise.all([...document.images].map(img => img.decode()));
+      });
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      expect(await page.locator('a').evaluateAll(links => links.every(link => {
+        if (link.hash && link.origin === location.origin && link.pathname === location.pathname) return !!document.getElementById(link.hash.slice(1));
+        return /^(https?:|mailto:)/.test(link.href);
+      }))).toBe(true);
+      await page.reload();
+      await expect(page.locator(section)).toBeAttached();
+    }
+    await page.setViewportSize({width: 1440, height: 1080});
+    const axe = await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa','wcag22aa']).analyze();
+    expect(axe.violations).toEqual([]);
+    expect(errors).toEqual([]);
+    for (const path of ['/robots.txt','/brand/gloz-original-light.png','/fonts/montserrat-latin-wght-normal.woff2','/projects/work-1.jpg']) expect((await request.get(path)).status()).toBe(200);
+    for (const path of ['/concepts/','/src/','/__qa/does-not-exist.js','/projects/missing.jpg']) expect((await request.get(path)).status()).toBe(404);
+  });
+}
+
+test('Navegación de rutas, historial, menú móvil, teclado y contactos aprobados', async ({ page }) => {
+  await page.setViewportSize({width: 1440, height: 900});
   await page.goto('/');
-  for (const id of ['servicios', 'proyectos', 'proceso', 'nosotros', 'contacto']) {
-    await page.locator(`#navigation a[href="#${id}"]`).first().click();
-    await expect(page).toHaveURL(new RegExp(`#${id}$`));
-    await expect(page.locator('#' + id)).toBeFocused();
-    const bounds = await page.locator('#' + id).boundingBox();
-    expect(bounds!.y).toBeGreaterThanOrEqual(80);
+  for (const [label, url] of [['Proyectos','/proyectos'],['Estudio','/estudio'],['Hablemos','/contacto']]) {
+    await page.locator('#primary-nav').getByRole('link',{name:label,exact:true}).click();
+    await expect(page).toHaveURL(new RegExp(url+'$'));
+    await expect(page.locator('#contenido')).toBeFocused();
+    await expect(page.locator(`#primary-nav a[href="${url}"]`)).toHaveAttribute('aria-current','page');
   }
-  await page.getByRole('link', { name: 'Ver proyectos', exact: true }).click();
-  await expect(page).toHaveURL(/#proyectos$/);
-  await page.getByRole('link', { name: 'Hablemos de tu proyecto' }).click();
-  await expect(page).toHaveURL(/#contacto$/);
-});
-
-test('Carrusel real: controles, teclado, extremos y sin autoplay (datos aislados)', async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/__qa/');
-  const track = page.locator('.logo-track');
-  await expect(track.locator('li')).toHaveCount(6);
-  const previous = page.getByRole('button', { name: 'Marcas anteriores' });
-  const next = page.getByRole('button', { name: 'Marcas siguientes' });
-  await expect(previous).toBeDisabled();
-  await expect(next).toBeEnabled();
-  await track.focus();
-  await page.keyboard.press('ArrowRight');
-  await expect.poll(() => track.evaluate(el => el.scrollLeft)).toBeGreaterThan(0);
-  await page.keyboard.press('End');
-  await expect(next).toBeDisabled();
-  await page.keyboard.press('Home');
-  await expect(previous).toBeDisabled();
-  await next.click();
-  await expect.poll(() => track.evaluate(el => el.scrollLeft)).toBeGreaterThan(0);
-  await previous.click();
-  await expect(previous).toBeDisabled();
-  await track.focus();
+  await page.goBack();
+  await expect(page.locator('gloz-studio-page')).toBeAttached();
+  await page.goForward();
+  await expect(page.locator('gloz-contact-page')).toBeAttached();
+  await expect(page.locator('footer a[href="mailto:holaagloz@gmail.com"]')).toBeVisible();
+  await expect(page.locator('footer a[href="https://wa.me/5491153332748"]')).toBeVisible();
+  await expect(page.locator('footer a[href="https://www.instagram.com/studiogloz/"]')).toBeVisible();
+  expect(await page.locator('a[target="_blank"]').evaluateAll(links=>links.every(a=>a.rel.includes('noopener')))).toBe(true);
+  await page.locator('header .logo').click();
+  await expect(page).toHaveURL(/\/$/);
+  await page.setViewportSize({width:390,height:844});
+  const toggle = page.locator('.menu-toggle');
+  await toggle.click();
+  await expect(toggle).toHaveAttribute('aria-expanded','true');
+  await expect(page.locator('#contenido')).toHaveAttribute('inert','');
   await page.keyboard.press('Tab');
-  await expect(page.locator('[role="group"][aria-label="Filtrar trabajos"] button').first()).toBeFocused();
-  // Native scroll + snap is the touch path; no timer, clone or marquee exists.
-  expect(await track.evaluate(el => getComputedStyle(el).scrollSnapType)).toBe('x mandatory');
-  const start = await track.evaluate(el => el.scrollLeft);
-  await page.waitForTimeout(400);
-  expect(await track.evaluate(el => el.scrollLeft)).toBe(start);
-  await page.setViewportSize({ width: 2200, height: 1000 });
-  await expect(next).toHaveCount(0);
-  await expect(previous).toHaveCount(0);
+  await expect(page.locator('#primary-nav a').first()).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(toggle).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(page.locator('#primary-nav a').last()).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(toggle).toHaveAttribute('aria-expanded','false');
+  await expect(toggle).toBeFocused();
+  await toggle.click();
+  await page.locator('#primary-nav a').first().click();
+  await expect(page).toHaveURL(/\/proyectos$/);
+  await expect(page.locator('#contenido')).not.toHaveAttribute('inert','');
+  await expect(toggle).toHaveAttribute('aria-expanded','false');
 });
 
-test('Galería real: filtros derivados y fallback de imágenes (datos aislados)', async ({ page }) => {
-  await page.goto('/__qa/');
-  const gallery = page.getByRole('region', { name: 'Trabajos seleccionados' });
-  await expect(gallery.locator('article')).toHaveCount(2);
-  await expect(page.getByRole('button', { name: 'Marketing digital', exact: true })).toHaveCount(0);
-  await page.getByRole('button', { name: 'Software', exact: true }).click();
-  await expect(gallery.locator('article')).toHaveCount(1);
-  await expect(gallery.locator('h4')).toHaveText('QA software fixture');
-  await expect(page.getByRole('button', { name: 'Software', exact: true })).toHaveAttribute('aria-pressed', 'true');
-  await page.getByRole('button', { name: 'Branding', exact: true }).click();
-  await expect(gallery.locator('h4')).toHaveText('QA branding fixture');
-  await page.getByRole('button', { name: 'Todos', exact: true }).click();
-  await expect(gallery.locator('article')).toHaveCount(2);
-  await page.route('**/fixture.svg', route => route.abort());
-  await page.reload();
-  await expect(page.locator('.image-fallback')).toHaveCount(2);
-  await expect(page.locator('.client-section')).toHaveCount(0);
-});
+for (const script of ['verify-coverflow', 'verify-loading']) {
+  test(`Cinematic aprobado: ${script}`, async () => {
+    test.setTimeout(240_000);
+    const {stdout,stderr} = await promisify(execFile)(process.execPath,[`tests/qa/${script}.mjs`],{timeout:220_000,maxBuffer:4*1024*1024});
+    await mkdir('test-results/qa',{recursive:true});
+    await writeFile(`test-results/qa/${script}.log`,stdout+stderr);
+  });
+}

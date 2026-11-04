@@ -1,48 +1,58 @@
-# Gloz - Estudio creativo y tecnológico
+# GLOZ Studio
 
-Sitio institucional Angular 22 standalone, TypeScript estricto y SCSS. Una página pública prerenderizada con hidratación. Implementa el prompt maestro sobre el trabajo previo de Fase 1, sin despliegue ni backend.
+Web de GLOZ Studio en Angular 22, TypeScript estricto y SCSS. Rutas: `/`, `/proyectos`, `/estudio` y `/contacto`.
 
-## Ejecutar desde la raíz
+El Cinematic 3D Coverflow muestra siete tarjetas en escritorio y tres en móvil, repitiendo cuatro fotogramas originales en un bucle continuo. Comparte la selección con el portfolio y permite flechas, teclado, swipe y selección directa, sin autoplay.
 
-Requisitos: Node 24.15+ en la rama 24 (validado con 24.22.1), npm y Google Chrome instalado para E2E.
+## Desarrollo
 
-```powershell
+Requisitos: Node `^24.15.0 || >=26.0.0` y npm. Los E2E requieren Google Chrome instalado y el puerto 4300 libre. En PowerShell usar `npm.cmd` si la política local bloquea `npm.ps1`.
+
+```sh
 npm ci
 npm start
 ```
 
-Abrir http://127.0.0.1:4200. La aplicación ahora está en la raíz; no hay que entrar a `GLOZ_CODEX_FASE1`.
+Abrir http://127.0.0.1:4200.
 
-```powershell
+## Compilación y pruebas
+
+```sh
 npm run check
 npm run build
 npm test
 ```
 
-`npm run build` genera únicamente el sitio público en `dist/gloz/browser/` con una ruta prerenderizada. `npm test` ejecuta 4 pruebas unitarias, compila una aplicación aislada de fixtures y ejecuta 12 E2E en Chrome. Requiere el build público previo y el puerto 4300 libre; inicia y cierra su propio servidor de QA. No se instala otro navegador ni hay servidor de producción persistente.
+`npm test` comprueba TypeScript, ejecuta cuatro pruebas unitarias del coverflow, compila producción y ejecuta siete pruebas E2E. Playwright inicia y cierra su servidor local. Cubre las cuatro rutas en seis resoluciones, recursos, accesibilidad, navegación, menú móvil, coverflow, hover, swipe, transiciones y carga fría/retrasada. `npm run test:e2e` repite los E2E sobre un build existente.
 
-Los fixtures de QA están en `tests/harness/` y su salida independiente en `dist/carousel-qa/`. **No forman parte de `dist/gloz/browser/`**. No publicar esa aplicación de pruebas.
+Capturas, trazas e informes se generan en `test-results/` y `playwright-report/`, ignorados por Git. Para comparar visualmente las cuatro rutas con un build aprobado, iniciar `node tests/serve.mjs` y ejecutar en otra terminal:
 
-## Componentes y datos
+```sh
+node tests/qa/compare-approved.mjs C:/ruta/al/approved-browser
+```
 
-- `src/app/header/`, `hero/`, `capabilities-strip/`, `services/`: dirección aprobada conservada, CTA reales y servicios renderizados desde datos.
-- `src/app/portfolio/`: caso verificado de Viejos Barbería exclusivamente como desarrollo de software; composición neutral hasta recibir capturas auténticas.
-- `src/app/client-logo-carousel/`: carrusel nativo, sin autoplay ni clones, con teclado, scroll snap, extremos y controles condicionales. Oculto sin logos autorizados.
-- `src/app/work-gallery/`: galería con filtros derivados de las categorías que tienen trabajos publicables. Oculta sin imágenes reales y textos alternativos.
-- `src/app/process/`, `about/`, `contact/`, `site-footer/`: cierre editorial, sin fotos de personas ficticias, formulario ni datos de contacto inventados.
-- `src/app/data/`: modelos, servicios, proyectos, clientes, proceso, configuración y reglas de publicación.
-- `src/app/shared/brand-placeholder.ts`: punto de integración del logo original, con fallback textual temporal y manejo de error.
-- `src/styles.scss`: tokens, fuentes locales, foco visible y movimiento reducido.
-- `public/fonts/`: Montserrat y Yeseva One con sus licencias SIL OFL.
+## Estructura
 
-## Incorporar activos reales
+```text
+src/
+  main.ts, main.server.ts, index.html
+  styles.scss
+  app/
+    app.ts, app.routes.ts
+    pages/                     Inicio, proyectos, estudio y contacto
+    header/, site-footer/      Navegación y contactos
+    hero/, coverflow/          Portada y carrusel 3D
+    portfolio/                 Portfolio sincronizado
+    disciplines/, editorial/  Secciones de la web
+    data/                      Piezas, selección y configuración
+public/
+  brand/                       Logotipos oficiales y textura
+  fonts/                       Tipografías locales y licencias
+  projects/                    Cuatro fotogramas originales
+  robots.txt
+tests/                        Unitarias, E2E y verificaciones visuales
+```
 
-Ver [guía de activos](docs/gloz/ACTIVOS_PENDIENTES.md). La configuración está en `src/app/data/site.config.ts`; proyectos y clientes en sus archivos `.data.ts`. Los archivos públicos se pueden guardar bajo `public/brand/`, `public/clients/` y `public/projects/` y referenciar como `/brand/...`, `/clients/...` y `/projects/...`.
+`works.data.ts` define piezas y encuadres; `WorkSelection` sincroniza hero y portfolio. `site.config.ts` contiene los contactos oficiales. Las clases `.v4a` y `.cinematic-validation` son estilos activos del diseño aprobado.
 
-Sin datos de contacto no se renderiza un botón de envío ni un enlace externo: el bloque comunica que el canal está pendiente. Los CTA de Hero y Header sí navegan a las secciones reales.
-
-## Validación y límites
-
-Ver [informe del sitio completo](docs/gloz/qa/VALIDACION_MAESTRO.md) y las capturas `docs/gloz/qa/master-*.png`. El informe anterior `VALIDACION.md` y las capturas `viewport-*.png` conservan el historial de Fase 1.
-
-No se añadieron canonical, dominio, Open Graph image ni sitemap con URLs inventadas. Se incluyeron `lang="es-CR"`, metadatos OG textuales y `robots.txt`. Faltan el logo original, logos de clientes, trabajos y campañas reales, capturas de Viejos y canales de contacto. La fotografía auténtica del equipo es opcional.
+El build genera el sitio estático en `dist/gloz/browser/`, con un `index.html` por ruta. El hosting debe servir índices de directorio. El `<base href="/">` presupone la raíz de un dominio; para publicar en un subdirectorio hay que configurar `base-href` y validar ese destino.

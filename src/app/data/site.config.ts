@@ -1,9 +1,7 @@
 import { SiteConfig } from './models';
-// TODO(contact): Verified business channels. TODO(brand): Original dark/light
-// SVG or transparent PNG. Do not ship invented example contact values.
-export const SITE_CONFIG: SiteConfig = {};
-export const NAVIGATION = [
-  { id: 'servicios', label: 'Servicios' }, { id: 'proyectos', label: 'Proyectos' },
-  { id: 'proceso', label: 'Proceso' }, { id: 'nosotros', label: 'Nosotros' },
-  { id: 'contacto', label: 'Contacto' }
-] as const;
+// Public channels from supplied portfolio; WhatsApp confirmed on 2026-11-03.
+export const SITE_CONFIG: SiteConfig = {
+  email: 'holaagloz@gmail.com', whatsapp: '+5491153332748',
+  instagram: 'https://www.instagram.com/studiogloz/',
+  logo: { dark: '/brand/gloz-original-blue.png', light: '/brand/gloz-original-light.png' }
+};
